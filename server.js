@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const exercise = require("./controller/exercise")
 const workout = require("./controller/api")
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(express.static("Develop/public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workouts", {
   useNewUrlParser: true,
   useFindAndModify: false
 });

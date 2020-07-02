@@ -6,18 +6,31 @@ async function initWorkout() {
       .querySelector("a[href='/exercise?']")
       .setAttribute("href", `/exercise?id=${lastWorkout._id}`);
 
+      if (lastWorkout.exercises.length >= 1) {
+        let totalDuration = []
+        for (let i = 0; i < lastWorkout.exercises.length; i++) {
+          let durationLoop = lastWorkout.exercises[i]
+          totalDuration.push(durationLoop.duration) 
+        }
+        var sum = totalDuration.reduce((a,b)=> {
+          return a + b;
+        }, 0);
+      }
+
     const workoutSummary = {
       date: formatDate(lastWorkout.day),
-      totalDuration: lastWorkout.totalDuration,
+      totalDuration: sum,
       numExercises: lastWorkout.exercises.length,
       ...tallyExercises(lastWorkout.exercises)
     };
 
     renderWorkoutSummary(workoutSummary);
+  
   } else {
     renderNoWorkoutText()
   }
 }
+
 
 function tallyExercises(exercises) {
   const tallied = exercises.reduce((acc, curr) => {
