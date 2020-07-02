@@ -5,7 +5,7 @@
 
 ![Demo](Develop/public/demo.png)
 
-##Deployed
+## Deployed
 
 https://serene-lake-33517.herokuapp.com/
 
