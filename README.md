@@ -3,7 +3,7 @@
 
 # Workout-Tracker
 
-![Demo](develop/public/demo.png)
+![Demo](Develop/public/demo.png)
 
 ##Deployed
 
